@@ -11,6 +11,7 @@ pkg_check_modules(CRAILS_CMS REQUIRED
   libcrails-json-views>=2.0.0
   libcrails-html-views>=2.0.0
   libcrails-paginator>=2.0.0
+  libodb-pgsql>=2.4.0
 )
 
 include_directories(. ../.. ${CRAILS_CMS_INCLUDE_DIRS})
@@ -31,3 +32,4 @@ target_link_libraries(blog
   ${CRAILS_CMS_LIBRARIES}
   crails-app)
 install(TARGETS blog LIBRARY DESTINATION lib/libcrails-cms)
+install(FILES blog.description.json blog.description.png DESTINATION lib/libcrails-cms)
