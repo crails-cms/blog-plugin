@@ -25,7 +25,5 @@ void initialize_plugin_renderers()
 
   initialize_renderer(renderers, plugin_html);
   initialize_renderer(renderers, plugin_json);
-  if (injector)
-    injector->add_injectable({"blog-index", &BlogController::injectable_index, {"count"}});
+  Crails::Cms::Injector::register_injectable<BlogController::InjectableIndex>("blog-index", {"count"});
 }
-
