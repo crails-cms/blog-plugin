@@ -10,6 +10,10 @@ class AdminBlogController : public Crails::Cms::AdminBlogController<BlogPostTrai
 public:
   static constexpr const char* scope = "blog";
 
+  typedef typename BlogPostTraits::Model      Model;
+  typedef typename BlogPostTraits::TagModel   Tag;
+  typedef typename BlogPostTraits::IndexModel IndexModel;
+
   AdminBlogController(Crails::Context& context) : Super(context)
   {
     vars["local_route"] = std::string(AdminApplicationController::scope) + '/' + scope;

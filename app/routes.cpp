@@ -13,6 +13,7 @@ void initialize_plugin_routes()
   // insert plugin routes here
   router.scope(BlogController::scope, [&]()
   {
+    router.match_action("GET", "/", BlogController, index);
     cms_routes.register_blog_routes<BlogController>(router);
   });
 

@@ -32,7 +32,7 @@ public:
       add_model_to_vars("previous_model", previous_model);
       add_model_to_vars("next_model", next_model);
       Super::prepare_open_graph(*model);
-      Super::render(get_view_scope() + "/show", {
+      Super::render_accepting("application/rss+xml, text/html", get_view_scope() + "/show", {
         {"model", reinterpret_cast<const Crails::Cms::BlogPost*>(model.get())}
       });
     }
