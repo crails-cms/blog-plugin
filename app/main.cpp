@@ -1,4 +1,6 @@
 #include <string>
+#include <crails/cms/sitemap_resource.hpp>
+#include "controllers/blog.hpp"
 
 void initialize_plugin_routes();
 void initialize_plugin_renderers();
@@ -27,6 +29,12 @@ extern "C"
   {
     uninstall_plugin_database();
   }
+
+  std::unique_ptr<Crails::Cms::SiteMap::Index> plugin_sitemap_index()
+  {
+    return std::make_unique<Crails::Cms::SiteMap::ResourceIndex<BlogController, BlogPostTraits>>();
+  }
+
 /*
   std::string_view plugin_javascript()
   {
